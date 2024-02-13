@@ -11,12 +11,12 @@ const getUsers = async (req, res) => {
 
 const getUserById = async (req,res) => {
     try {
-        const user = await Collection.findById(req.params.id)
+        const user = await User.findById(req.params.id)
         if (user) {
             res.json(user)
         }
     } catch (error) {
-        return res.status(500).send('Collection with the specified ID does not exists');
+        return res.status(500).send('User with the specified ID does not exists');
     }
 }
 
