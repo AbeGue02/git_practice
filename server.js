@@ -4,6 +4,8 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+const { getUsers, getUserById } = require('./controllers/userController.js')
+
 const PORT = process.env.PORT || 3001;
 const app = express();
 
@@ -17,5 +19,5 @@ app.get('/', async (req,res) => {
     res.send("Welcome to our user database!")
 })
 
-app.get('/recipes', getUsers)
-app.get('/recipes/:id', getUserById)
+app.get('/users', getUsers)
+app.get('/users/:id', getUserById)

@@ -1,0 +1,26 @@
+const { User } = require('../models')
+
+const getUsers = async (req, res) => {
+    try {
+        const users = await User.find()
+        res.json(users)
+    } catch (error) {
+        return res.status(500).send("An error has occured")
+    }
+}
+
+const getUserById = async (req,res) => {
+    try {
+        const user = await Collection.findById(req.params.id)
+        if (user) {
+            res.json(user)
+        }
+    } catch (error) {
+        return res.status(500).send('Collection with the specified ID does not exists');
+    }
+}
+
+module.exports = {
+    getUsers,
+    getUserById
+}
